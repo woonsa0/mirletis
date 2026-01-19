@@ -60,4 +60,4 @@ We verified both security hardness and execution speed.
 | **K=5** | **Level 5+** | **~324 bits** | **2.3 ms** | **1.5 ms** |
 | **K=6** | Extreme | ~391 bits | 1.3 ms | 1.5 ms |
 
-> *Measurements taken on [System Specs, e.g., Apple M1 / Intel i9]. C implementation varies by optimization; Rust provides stable constant-time performance.*
+> 📄 **Full Report:** For detailed lattice security analysis (SageMath logs) and C vs Rust performance breakdown, please see the [**Detailed Benchmark Report**](docs/BENCHMARK.md).
