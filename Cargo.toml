@@ -1,0 +1,49 @@
+[package]
+name = "mirletis"
+version = "1.1.0"
+edition = "2021"
+authors = ["Mirletis Contributors"]
+description = "The Dragon on the Lattice: A lightweight, post-quantum KEM based on LWR."
+license = "MIT"
+repository = "https://github.com/woonsa0/mirletis"
+readme = "README.md"
+keywords = ["cryptography", "post-quantum", "kem", "lwr", "no_std"]
+categories = ["cryptography", "embedded", "no-std"]
+exclude = ["/c_impl", "/docs", ".gitignore"]
+
+[dependencies]
+# 1. SHA3/SHAKE Engine (Pure Rust implementation)
+# default-features = false is crucial for no_std compatibility
+sha3 = { version = "0.10", default-features = false }
+
+# 2. Memory Protection
+# Zeroizes memory on drop to prevent cold-boot attacks
+zeroize = { version = "1.6", features = ["derive"] }
+
+# 3. Randomness
+# Note: For strict bare-metal embedded without OS, you may need to
+# replace 'getrandom' with a hardware-specific RNG crate.
+rand = { version = "0.8", default-features = false, features = ["getrandom"] }
+
+[dev-dependencies]
+# For running tests/benchmarks
+criterion = "0.5"
+
+[features]
+default = []
+# Optional: Enable std if needed for file I/O or other std features later
+std = ["sha3/std", "rand/std"]
+
+# === [ Optimization Profile ] ===
+# Designed for maximum security and minimum footprint
+
+[profile.release]
+opt-level = 3       # Maximize speed (Cortex-M4/M7 loves this)
+lto = true          # Link Time Optimization (Removes dead code across crates)
+codegen-units = 1   # Slower compilation, but better optimization (Whole program analysis)
+panic = "abort"     # Remove stack unwinding overhead (Crucial for small flash size)
+strip = true        # Strip symbols from binary (Reduces size further)
+
+[profile.bench]
+opt-level = 3
+lto = true
