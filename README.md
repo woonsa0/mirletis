@@ -44,7 +44,7 @@ We ran the numbers, and they look pretty good. The security margin scales with t
 Add this to your `Cargo.toml`:
 ```toml
 [dependencies]
-mirletis = { git = "[https://github.com/woonsa0/mirletis](https://github.com/woonsa0/mirletis)" }
+mirletis = { git = "https://github.com/woonsa0/mirletis" }
 
 
 ## 📊 Benchmarks (Executive Summary)
