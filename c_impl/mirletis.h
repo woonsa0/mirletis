@@ -7,7 +7,7 @@
  * ranging from 8-bit MCUs to high-performance clusters.
  *
  * @note    Verified Security: >300 bits (at K=5) via SageMath/Lattice-Estimator.
- * @license Apache-2.0 / MIT
+ * @license MIT
  * @author  Mirletis Project Contributors
  */
 
