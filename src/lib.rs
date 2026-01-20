@@ -2,7 +2,7 @@
  * ============================================================================
  * CRATE: MIRLETIS (Rust Core) v1.1
  * DESCRIPTION: The Dragon-Lattice Post-Quantum Cryptography Library
- * SPEC: N=256, K=5, SHAKE-256
+ * SPEC: N=256, K=5, SHAKE-256, MIT
  * NOTE: 100% Safe Rust, No-std compatible, Branchless
  * ============================================================================
  */
